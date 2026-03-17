@@ -122,6 +122,15 @@ body {
     transition: color 0.3s ease;
 }
 
+.complete-btn {
+    color: #27ae60; /* A nice green color */
+}
+
+.complete-btn:hover {
+    color: #1e8449; /* Darker green on hover */
+    text-decoration: none;
+}
+
 .delete-btn {
     color: #ff4d4d; /* Red color */
     text-decoration: none;
