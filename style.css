@@ -122,6 +122,15 @@ body {
     transition: color 0.3s ease;
 }
 
+.undo-btn {
+    color: #f39c12; /* A nice orange/yellow color */
+}
+
+.undo-btn:hover {
+    color: #d35400;
+    text-decoration: none;
+}
+
 .complete-btn {
     color: #27ae60; /* A nice green color */
 }
