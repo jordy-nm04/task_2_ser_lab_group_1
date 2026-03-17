@@ -47,10 +47,12 @@ $result= $conn-> query("SELECT * FROM tasks ORDER BY id DESC");
                 <li class="<?php echo $row["status"];?>">
                     <strong><?php echo $row["task"]; ?></strong>
                     <div class="actions">
-                        <a href="dashboard.php?complete=<?php echo $row['id'];?>">Complete</a>
+                        <a href="dashboard.php?complete=<?php echo $row['id']; ?>" class="complete-btn">
+                            <i class="fa-solid fa-check"></i>
+                        </a>
 
                     <a href="dashboard.php?delete=<?php echo $row['id']; ?>" class="delete-btn">
-                     <i class="fa-solid fa-trash"></i>
+                        <i class="fa-solid fa-trash"></i>
                     </a>
                     </div>
                 </li>
