@@ -122,6 +122,18 @@ body {
     transition: color 0.3s ease;
 }
 
+.delete-btn {
+    color: #ff4d4d; /* Red color */
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+.delete-btn:hover {
+    color: #cc0000;
+    transform: scale(1.1);
+}
+
 .actions a:hover {
     text-decoration: underline;
     color: #274bb3;
