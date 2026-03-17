@@ -33,6 +33,7 @@ $result= $conn-> query("SELECT * FROM tasks ORDER BY id DESC");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Colored List</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -48,7 +49,9 @@ $result= $conn-> query("SELECT * FROM tasks ORDER BY id DESC");
                     <div class="actions">
                         <a href="dashboard.php?complete=<?php echo $row['id'];?>">Complete</a>
 
-                        <a href="dashboard.php?delete=<?php echo $row['id'];?>">Delete</a>
+                    <a href="dashboard.php?delete=<?php echo $row['id']; ?>" class="delete-btn">
+                     <i class="fa-solid fa-trash"></i>
+                    </a>
                     </div>
                 </li>
             <?php endwhile?>
