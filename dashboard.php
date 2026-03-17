@@ -20,6 +20,11 @@ if (isset($_GET["complete"])){
     $conn->query("UPDATE tasks SET status = 'completed' WHERE id= '$id'");
     header("Location: dashboard.php");
 }
+if (isset($_GET["undo"])){
+    $id = $_GET["undo"];
+    $conn->query("UPDATE tasks SET status = 'pending' WHERE id='$id'");
+    header("Location: dashboard.php");
+}
 
 $result= $conn-> query("SELECT * FROM tasks ORDER BY id DESC");
 ?>
@@ -33,10 +38,11 @@ $result= $conn-> query("SELECT * FROM tasks ORDER BY id DESC");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Colored List</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-       <div class="main-title"> <h1>Jordy’s Todo List</h1></div>
+       <div class="main-title"> <h1>Group 1’s Todo List</h1></div>
         <form action="dashboard.php" method="post">
             <input type="text" name="task" placeholder="Enter new task" id="">
             <button type="submit" name="addtask">Add Task</button>
@@ -46,9 +52,19 @@ $result= $conn-> query("SELECT * FROM tasks ORDER BY id DESC");
                 <li class="<?php echo $row["status"];?>">
                     <strong><?php echo $row["task"]; ?></strong>
                     <div class="actions">
-                        <a href="dashboard.php?complete=<?php echo $row['id'];?>">Complete</a>
+                        <?php if ($row['status'] !== 'completed'): ?>
+                             <a href="dashboard.php?complete=<?php echo $row['id']; ?>" class="complete-btn">
+                                 <i class="fa-solid fa-check"></i>
+                            </a>
+                        <?php else: ?>
+                            <a href="dashboard.php?undo=<?php echo $row['id']; ?>" class="undo-btn">
+                                <i class="fa-solid fa-rotate-left"></i>
+                            </a>
+                        <?php endif; ?>
 
-                        <a href="dashboard.php?delete=<?php echo $row['id'];?>">Delete</a>
+                        <a href="dashboard.php?delete=<?php echo $row['id']; ?>" class="delete-btn">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
                     </div>
                 </li>
             <?php endwhile?>
