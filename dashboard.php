@@ -1,6 +1,6 @@
 <?php
 
-$conn = new mysqli("localhost","root","", "todolist",3306);
+$conn = new mysqli("localhost","root","","todolist",3306);
 if ($conn-> connect_error) {
     die("Connection Failed". $conn->connect_error);
 }
