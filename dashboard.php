@@ -37,7 +37,7 @@ $result= $conn-> query("SELECT * FROM tasks ORDER BY id DESC");
 <body>
     <div class="container">
        <div class="main-title"> <h1>Jordy’s Todo List</h1></div>
-       <?php include "task_counter.php"; ?>
+    
        <?php include "icon.php"; ?>
         <form action="dashboard.php" method="post">
             <input type="text" name="task" placeholder="Enter new task" id="">
